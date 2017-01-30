@@ -1,6 +1,6 @@
 before_script:
   - apt update -qy
-  - apt apt-get build-dep bitcoin
+  - apt-get build-dep bitcoin
   - apt-get –install-recommends install libbitcoin-dev
 
 stages:

@@ -1,0 +1,20 @@
+before_script:
+  - apt update -qy
+  - apt apt-get build-dep bitcoin
+  - apt-get –install-recommends install libbitcoin-dev
+
+stages:
+  - build
+
+basic-build:
+  stage: build
+  script:
+    - ./autogen.sh
+    - ./configure –with-incompatible-bdb
+    - make
+
+  only:
+    - master
+  tags:
+    - debian
+    - jessie
